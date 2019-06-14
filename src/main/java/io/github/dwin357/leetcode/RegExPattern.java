@@ -27,18 +27,9 @@ public class RegExPattern {
     UPDATE -- needed to add a method to ck if the pattern is "closed"
     so that it was not just matching on substrings
 
-    UPDATE -- didn't like the attempt to pass a char array, that didn't feel productive
-      new idea :: rather than each node only owning a character, each node instead owns a "pattern"
-      the pattern is a string
-      for "star" nodes, the pattern remains a single "optional" character
-      for "dot" nodes, the pattern has a length aspect, but not a char aspect
-      for "rigid" nodes, the pattern is a specific sequence of char w/ a set length
-      
-      Also, rather than an outer loop popping off char 1 by 1 and feeding them through the pattern,
-      each node passes an argument object which includes { string: considered, int: abs-index, int: opt-index }
-      each node then has to check to see if it can apply its pattern starting at any point between the abs-index & the optional-index
-      
-      String indexs are so much more finicky than charcter arrays
+    UPDATE -- optional (ie *) node needs to check for each character from the
+    current head to up to the first "non-matching" element
+    This passes :: uses less memory than 99.02% other solutions
     */
     
     private static final int ASCI_STAR = 42;
@@ -46,7 +37,7 @@ public class RegExPattern {
     
     public boolean isMatch(String s, String p) {
     	PatternStep struct = buildStruct(p);
-    	display(struct);
+//    	display(struct);
     	ProcessState state = new ProcessState(s.toCharArray());
     	PatternStep result = struct.getNext(state);
     	return result != null;
@@ -89,7 +80,7 @@ public class RegExPattern {
     	return previous;
     }
     
-    ////////
+
     
     ////////////////////////////////
     ////    Data Structures    /////
