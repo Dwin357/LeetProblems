@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package io.github.dwin357.leetcode;
+package io.github.dwin357.leetcode.problemTen;
 
 /**
  *
  * @author dwin
  */
-public class RegExPattern {
+public class Solution {
         /*
     Idea - take the pattern-string & turn it into a pattern-obj
     The pattern obj will break the pattern into a linked list

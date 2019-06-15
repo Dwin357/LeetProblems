@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package io.github.dwin357.leetcode;
+package io.github.dwin357.leetcode.problemTen;
 
+import io.github.dwin357.leetcode.problemTen.Solution;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -13,16 +14,16 @@ import static org.junit.Assert.*;
  *
  * @author dwin
  */
-public class RegExPatternTest {
+public class SolutionTest {
     
-    public RegExPatternTest() {
+    public SolutionTest() {
     }
     
-    private RegExPattern classUnderTest;
+    private Solution classUnderTest;
     
     @Before
     public void setUp() {
-        classUnderTest = new RegExPattern();
+        classUnderTest = new Solution();
     }
 
     @Test
