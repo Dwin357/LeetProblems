@@ -166,31 +166,28 @@ onDeck = *
 postLCut = f -> e -> d -> c -> g -> ...
 
 
+* Accepted...
+* Better than 50.68% on speed
+* Better than 37.61% on memory
+* 
+* Pretty lack-luster results, but I really didn't have any clever ideas
+* on this one.
 */
 public class Solution {
     public ListNode reverseKGroup(ListNode rightHandle, int k) {
+        if(k==1){
+            return rightHandle;
+        }
         
         ListNode anchor = extend(rightHandle, -1);
         ListNode leftHandle = anchor;
         int counter = 0;
         
-        while(rightHandle != null) {
-//            System.out.println(
-//                    "move c:" + counter
-//                  + " k:"+k
-//                  +" lH:"+(leftHandle != null ? leftHandle.val : "*")
-//                  +" rH:"+(rightHandle != null ? rightHandle.val : "*"));
-            
+        while(rightHandle != null) {            
             rightHandle = rightHandle.next;     
             counter++;
             
             if(counter % (k-1) == 0) {
-//            System.out.println(
-//                    "fold c:" + counter
-//                   +" k:"+k
-//                   +" lH:"+(leftHandle != null ? leftHandle.val : "*")
-//                   +" rH:"+(rightHandle != null ? rightHandle.val : "*"));
-
                 try {            
                     leftHandle = rotateAndReverse(leftHandle, rightHandle);
                     rightHandle = leftHandle.next;                    
@@ -210,30 +207,12 @@ public class Solution {
         ListNode rtn = postL;
         preR.next = null;
         preL.next = null; // not strictly needed, but easier to visual snipping the segment
-//        int ct = 0;
-
-//            System.out.println(
-//                    "ct:" + ct
-//                    +", preL:"+(preL !=null ? preL.val : "*")
-//                    +", postL:" +(postL !=null ? postL.val : "*")
-//                    +", preR:" +(preR !=null ? preR.val : "*")
-//                    +", postR:" +(postR !=null ? postR.val : "*")
-//                    +", rtn:" +(rtn !=null ? rtn.val : "*"));
             
         while(postL != null) {
             preR = postL.next; // at this point, pre-right is used as a stash var for "on deck"
             postL.next = postR;
             postR = postL;
             postL = preR;
-//            ct++;
-            
-//            System.out.println(
-//                    "ct:" + ct
-//                    +", preL:"+(preL !=null ? preL.val : "*")
-//                    +", postL:" +(postL !=null ? postL.val : "*")
-//                    +", preR:" +(preR !=null ? preR.val : "*")
-//                    +", postR:" +(postR !=null ? postR.val : "*")
-//                    +", rtn:" +(rtn !=null ? rtn.val : "*"));
         }
         
         preL.next = postR;
@@ -245,8 +224,4 @@ public class Solution {
         nwHead.next = nxt;
         return nwHead;
     }
-    
-        
-
-
 }

@@ -67,5 +67,19 @@ public class SolutionTest {
         System.out.println("actual:" + util.toString(actual));        
         assertTrue(util.assertEqual(expected, actual));        
     }
+
+    @Test
+    public void ex_4() {
+        ListNode inputList = util.buildList(new int[] {1,2,3,4,5});
+        int inputCount = 1;
+        
+        ListNode expected = util.buildList(new int[] {1,2,3,4,5});
+        
+        ListNode actual = classUnderTest.reverseKGroup(inputList, inputCount);
+        
+        System.out.println("expected:" + util.toString(expected));
+        System.out.println("actual:" + util.toString(actual));        
+        assertTrue(util.assertEqual(expected, actual));        
+    }
     
 }
