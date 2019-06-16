@@ -5,6 +5,8 @@
  */
 package io.github.dwin357.leetcode.problemTwentyThree;
 
+import io.github.dwin357.leetcode.utils.ListNode;
+
 /**
  *
  * @author dwin
