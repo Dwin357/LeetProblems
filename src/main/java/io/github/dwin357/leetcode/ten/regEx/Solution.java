@@ -30,6 +30,8 @@ public class Solution {
     UPDATE -- optional (ie *) node needs to check for each character from the
     current head to up to the first "non-matching" element
     This passes :: uses less memory than 99.02% other solutions
+
+    24ms 37MB
     */
     
     private static final int ASCI_STAR = 42;
