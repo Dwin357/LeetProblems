@@ -5,7 +5,7 @@ import java.util.Map;
 
 /*
  * Runtime: 1 ms, faster than 99.68% of Java online submissions for Two Sum.
-Memory Usage: 39.2 MB, less than 66.25% of Java online submissions for Two Sum.
+ * Memory Usage: 39.2 MB, less than 66.25% of Java online submissions for Two Sum.
  */
 
 public class Solution {
