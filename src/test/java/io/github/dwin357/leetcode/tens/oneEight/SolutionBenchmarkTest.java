@@ -199,6 +199,39 @@ public class SolutionBenchmarkTest {
         assertCollectionsProbEq(expected,actual);
     }
 
+    @Test
+    public void test_231() {
+        int[] given = new int[]{1,-2,-5,-4,-3,3,3,5};
+        int tgt = -11;
+        List<List<Integer>> expected = Arrays.asList(
+                Arrays.asList(-5,-4,-3,1)
+        );
+
+        SolutionBenchmark tested = new SolutionBenchmark();
+
+        List<List<Integer>> actual = tested.fourSum(given,tgt);
+
+        assertEquals(expected,actual);
+//        assertCollectionsProbEq(expected,actual);
+    }
+
+
+    @Test
+    public void test_287() {
+        int[] given = new int[]{0,0,0,1000000000,1000000000,1000000000,1000000000};
+        int tgt = 1000000000;
+        List<List<Integer>> expected = Arrays.asList(
+                Arrays.asList(0,0,0,1000000000)
+        );
+
+        SolutionBenchmark tested = new SolutionBenchmark();
+
+        List<List<Integer>> actual = tested.fourSum(given,tgt);
+
+        assertEquals(expected,actual);
+//        assertCollectionsProbEq(expected,actual);
+    }
+
     /*
      * NOTE:this would declare the following eq [a,a,b] [a,b,b]
      */

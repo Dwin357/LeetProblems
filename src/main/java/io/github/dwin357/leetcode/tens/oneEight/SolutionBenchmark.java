@@ -6,13 +6,69 @@ public class SolutionBenchmark {
 
     /*
      * starting from the ground up to see if anything jumps out at me...
+     *
+     * doubleForWithInnerMarch
+     * Runtime: 35 ms, faster than 32.27% of Java online submissions for 4Sum.
+     * Memory Usage: 39.8 MB, less than 58.62% of Java online submissions for 4Sum.
+     *
      */
     public List<List<Integer>> fourSum(int[] nums, int target) {
         // sort the list as a pre-req
         Arrays.sort(nums);
 
-        return fourNestedForLoop(nums,target);
+//        return fourNestedForLoop(nums,target);
 //        return fourNestedTwist(nums,target);
+        return doubleForWithInnerMarch(nums,target);
+    }
+
+    private List<List<Integer>> doubleForWithInnerMarch(int[] nums, int target) {
+        Set<List<Integer>> results = new HashSet<>();
+
+        int k;
+        int l;
+        long iTgt;
+        long jTgt;
+        boolean stepLeft;
+        boolean stepRight;
+        long pivot;
+
+        for(int i=0; i<nums.length - 3; i++) {
+            iTgt = target - nums[i];
+
+            for(int j=i+1; j<nums.length -2; j++) {
+                jTgt = iTgt - nums[j];
+                k=j+1;
+                l=nums.length-1;
+
+                while(k < l) {
+                    stepLeft = false;
+                    stepRight = false;
+                    pivot = nums[k] + nums[l] - jTgt;
+
+                    if(pivot == 0) {
+                        results.add(Arrays.asList(nums[i],nums[j],nums[k],nums[l]));
+                        stepLeft = true;
+                        stepRight = true;
+                    } else if(pivot > 0) {
+                        stepRight = true;
+                    } else {
+                        stepLeft = true;
+                    }
+
+                    if(stepLeft) {
+                        do {
+                            k++;
+                        } while(k < l && nums[k] == nums[k-1]);
+                    }
+                    if(stepRight) {
+                        do{
+                            l--;
+                        } while(k<l && nums[l] == nums[l+1]);
+                    }
+                }
+            }
+        }
+        return new LinkedList<>(results);
     }
 
     /*

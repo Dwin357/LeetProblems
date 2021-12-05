@@ -2,6 +2,7 @@ package io.github.dwin357.leetcode.tens.oneEight;
 
 import org.junit.Test;
 
+import java.math.BigInteger;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
@@ -214,6 +215,25 @@ public class SolutionTest {
         assertEquals(expected,actual);
 //        assertCollectionsProbEq(expected,actual);
     }
+
+
+    @Test
+    public void test_287() {
+        int[] given = new int[]{0,0,0,1000000000,1000000000,1000000000,1000000000};
+        int tgt = 1000000000;
+        List<List<Integer>> expected = Arrays.asList(
+                Arrays.asList(0,0,0,1000000000)
+        );
+
+        Solution tested = new Solution();
+
+        List<List<Integer>> actual = tested.fourSum(given,tgt);
+
+        assertEquals(expected,actual);
+//        assertCollectionsProbEq(expected,actual);
+    }
+
+
 
     /*
      * NOTE:this would declare the following eq [a,a,b] [a,b,b]
