@@ -14,9 +14,32 @@ public class Solution {
      *
      * And the input is allowed to be length.0, so will need to guard the edge cases of sz.0 & sz.1
      * Luckily, these edge cases are by definition uncompressible (ie just return 0)
+     *
+     * Runtime: 0 ms, faster than 100.00% of Java online submissions for Remove Duplicates from Sorted Array.
+     * Memory Usage: 40.7 MB, less than 36.95% of Java online submissions for Remove Duplicates from Sorted Array.
      */
 
     public int removeDuplicates(int[] nums) {
-        return -1;
+        // guard uncompressible edge cases {} and {x}
+        if(nums.length < 2) {
+            return nums.length;
+        }
+
+        int writePointer = 1;
+        int readPointer = 1;
+
+        // process whole ary w/ read-pointer
+        while(readPointer < nums.length) {
+
+            // only if the thing we are looking at is novel do we write it
+            if(nums[writePointer-1] != nums[readPointer]) {
+                nums[writePointer] = nums[readPointer];
+                writePointer++;
+            }
+
+            // always advance read pointer
+            readPointer++;
+        }
+        return writePointer;
     }
 }
