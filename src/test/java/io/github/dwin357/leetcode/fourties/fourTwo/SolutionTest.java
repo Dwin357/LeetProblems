@@ -1,5 +1,6 @@
-package io.github.dwin357.leetcode.fourTwo;
+package io.github.dwin357.leetcode.fourties.fourTwo;
 
+import io.github.dwin357.leetcode.fourties.fourTwo.Solution;
 import org.junit.Test;
 
 import static org.junit.Assert.*;

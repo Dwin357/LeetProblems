@@ -1,4 +1,4 @@
-package io.github.dwin357.leetcode.fourTwo;
+package io.github.dwin357.leetcode.fourties.fourTwo;
 
 public class Solution {
     /*
