@@ -3,11 +3,10 @@ package io.github.dwin357.leetcode.twenties.twoTwo;
 import org.junit.Test;
 
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
 
-
-import static org.hamcrest.Matchers.containsInAnyOrder;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 public class SolutionTest {
 
@@ -18,16 +17,21 @@ public class SolutionTest {
         Solution tested = new Solution();
 
         List<String> actual = tested.generateParenthesis(given);
-        assertThat(actual, containsInAnyOrder(expected));
+        setComparison(expected,actual);
     }
 
     @Test
-    public void example_() {
-        int given = ;
+    public void example_2() {
+        int given = 1;
         List<String> expected = Arrays.asList("()");
         Solution tested = new Solution();
 
         List<String> actual = tested.generateParenthesis(given);
-        assertThat(actual, containsInAnyOrder(expected));
+        setComparison(expected,actual);
+    }
+
+    private void setComparison(List<String> expected, List<String> actual) {
+//        assertEquals(expected.size(), actual.size());
+        assertEquals(new HashSet<>(expected), new HashSet<>(actual));
     }
 }
