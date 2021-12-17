@@ -1,25 +1,22 @@
-package io.github.dwin357.leetcode.twenties.twentyFive.rotateReverse;
-
+package io.github.dwin357.leetcode.twenties.twoFour;
 
 public class Solution {
     /*
-     * Note: this is actually my solution from 24.  It should also meet the challenge of working in O(k) space
+     * 1 -> 2 -> 3 -> 4
+     * ...
+     * 2 -> 1 -> 4 -> 3
      *
-     * Runtime: 1 ms, faster than 32.21% of Java online submissions for Reverse Nodes in k-Group.
-     * Memory Usage: 38.9 MB, less than 90.69% of Java online submissions for Reverse Nodes in k-Group.
-     * ...vs last time
-     * Better than 50.68% on speed
-     * Better than 37.61% on memory
-     *
-     * So I lost a bunch on time, but gained a bunch on memory (I think I still prefer time all other being eq)
-     * But I do believe I hit the stretch goal of a solution that works in O(k) memory
+     * For problem 24
+     * Runtime: 1 ms, faster than 100.00% of Java online submissions for Swap Nodes in Pairs.
+     * Memory Usage: 38.8 MB, less than 5.70% of Java online submissions for Swap Nodes in Pairs.
      */
-
-    public ListNode reverseKGroup(ListNode head, int k) {
+    public ListNode swapPairs(ListNode head) {
         // add an anchor-node to the front, at the end we rtn anchor.next
         ListNode anchor = new ListNode();
         anchor.next = head;
-        
+
+        // in the fancier version of this, k is passed in; for now it is just 2
+        int k = 2;
         // make a reusable frame that we will use to do the shuffle
         ListNode[] frame = new ListNode[k+2];
         ListNode fill = anchor;
@@ -65,4 +62,3 @@ public class Solution {
         return anchor.next;
     }
 }
-

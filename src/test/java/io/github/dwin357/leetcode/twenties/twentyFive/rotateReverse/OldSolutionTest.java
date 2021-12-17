@@ -3,28 +3,28 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package io.github.dwin357.leetcode.twenties.rotateReverse;
+package io.github.dwin357.leetcode.twenties.twentyFive.rotateReverse;
 
-import io.github.dwin357.leetcode.twenties.twentyFive.rotateReverse.Solution;
 import io.github.dwin357.leetcode.utils.ListNode;
 import io.github.dwin357.leetcode.utils.ListNodeUtil;
 import org.junit.Before;
 import org.junit.Test;
-import static org.junit.Assert.*;
+
+import static org.junit.Assert.assertTrue;
 
 /**
  *
  * @author dwin
  */
-public class SolutionTest {
+public class OldSolutionTest {
     
     private ListNodeUtil util;
-    private Solution classUnderTest;
+    private OldSolution classUnderTest;
     
     
     @Before
     public void setUp() {
-        classUnderTest = new Solution();
+        classUnderTest = new OldSolution();
         util = new ListNodeUtil();
     }
 
